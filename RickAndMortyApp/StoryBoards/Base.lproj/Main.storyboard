@@ -11,20 +11,20 @@
         <!--Root View Controller-->
         <scene sceneID="JP9-82-js7">
             <objects>
-                <tableViewController id="v4B-yw-gLV" sceneMemberID="viewController">
+                <tableViewController id="v4B-yw-gLV" customClass="CharactersTableViewController" customModule="RickAndMortyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="yU9-Az-cqM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="70" id="TaK-NG-dyA">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="70" id="TaK-NG-dyA" customClass="TableViewCell" customModule="RickAndMortyApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TaK-NG-dyA" id="DBd-TX-uoP">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0bG-wv-pr6">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0bG-wv-pr6" customClass="CharacterImageView" customModule="RickAndMortyApp" customModuleProvider="target">
                                             <rect key="frame" x="16" y="10" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="7Gt-Il-3Bd"/>
@@ -47,6 +47,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="characterImageView" destination="0bG-wv-pr6" id="qbU-gf-5Cz"/>
+                                    <outlet property="nameLabel" destination="Kp3-7a-0t1" id="OdE-Hq-e7N"/>
                                     <segue destination="keK-dv-Jvu" kind="show" id="wwx-f1-mJD"/>
                                 </connections>
                             </tableViewCell>
@@ -62,15 +64,15 @@
             </objects>
             <point key="canvasLocation" x="810.39999999999998" y="-34.729064039408868"/>
         </scene>
-        <!--View Controller-->
+        <!--Character Details View Controller-->
         <scene sceneID="88z-7Y-gGe">
             <objects>
-                <viewController id="keK-dv-Jvu" sceneMemberID="viewController">
+                <viewController id="keK-dv-Jvu" customClass="CharacterDetailsViewController" customModule="RickAndMortyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jcE-I2-EyI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Mv-aP-MnH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Mv-aP-MnH" customClass="CharacterImageView" customModule="RickAndMortyApp" customModuleProvider="target">
                                 <rect key="frame" x="67.666666666666686" y="107" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="1eF-wI-L6Z"/>
@@ -106,10 +108,10 @@
             </objects>
             <point key="canvasLocation" x="1653" y="-34"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Episodes View Controller-->
         <scene sceneID="mNq-L4-Uvi">
             <objects>
-                <tableViewController id="btj-Fj-3oh" sceneMemberID="viewController">
+                <tableViewController id="btj-Fj-3oh" customClass="EpisodesViewController" customModule="RickAndMortyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="yLP-bb-tXR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="755"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -147,10 +149,10 @@
             </objects>
             <point key="canvasLocation" x="3316" y="-35"/>
         </scene>
-        <!--View Controller-->
+        <!--Episode Details View Controller-->
         <scene sceneID="RQB-Oz-al4">
             <objects>
-                <viewController id="AEJ-op-LLA" sceneMemberID="viewController">
+                <viewController id="AEJ-op-LLA" customClass="EpisodeDetailsViewController" customModule="RickAndMortyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IP9-kR-Ipa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="755"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -205,15 +207,15 @@
             </objects>
             <point key="canvasLocation" x="4152.8000000000002" y="-35.467980295566505"/>
         </scene>
-        <!--View Controller-->
+        <!--Character Details View Controller-->
         <scene sceneID="5L2-z8-wXS">
             <objects>
-                <viewController id="foL-Yt-71K" sceneMemberID="viewController">
+                <viewController id="foL-Yt-71K" customClass="CharacterDetailsViewController" customModule="RickAndMortyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Veg-Ta-WmQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="755"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LTz-TN-svg">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LTz-TN-svg" customClass="CharacterImageView" customModule="RickAndMortyApp" customModuleProvider="target">
                                 <rect key="frame" x="67.666666666666686" y="72" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="WO3-sx-81V"/>
@@ -257,7 +259,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yqy-bn-hmc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-110" y="-34"/>
+            <point key="canvasLocation" x="-38" y="-35"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7t2-Fx-Ckx">
