@@ -24,6 +24,8 @@ class CharactersTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 70
+        tableView.backgroundColor = .black
         
         setupSearchController()
         setupNavigationBar()
