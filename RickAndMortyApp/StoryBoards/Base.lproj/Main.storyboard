@@ -58,7 +58,10 @@
                             <outlet property="delegate" destination="v4B-yw-gLV" id="CEK-5D-EaI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="hCJ-VC-kGM"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="hCJ-VC-kGM">
+                        <barButtonItem key="leftBarButtonItem" title="Prev" id="GZv-OR-vXo"/>
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="Next" id="lRp-mX-Pg8"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bTg-Ud-xDw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
