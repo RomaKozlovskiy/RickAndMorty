@@ -115,6 +115,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="characterImageView" destination="3Mv-aP-MnH" id="4Y9-Is-BSd"/>
+                        <outlet property="descriptionLabel" destination="FGE-xM-g8g" id="Lyf-vS-cqk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eFl-zs-ZM2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,22 +8,39 @@
 import UIKit
 
 class CharacterDetailsViewController: UIViewController {
+    
+    @IBOutlet var characterImageView: CharacterImageView! {
+        didSet {
+            characterImageView.layer.cornerRadius = characterImageView.frame.width / 2
+            
+        }
+    }
+    @IBOutlet var descriptionLabel: UILabel!
+    
+    // MARK: - Public Properties
+    var result: Result?
+    var characterUrl: String!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .black
+        descriptionLabel.textColor = .white
+        
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
+        
+        NetworkManager.shared.fetchCharacter(from: characterUrl) { result in
+            self.result = result
+            self.title = result.name
+            self.descriptionLabel.text = result.description
+            self.characterImageView.fetchImage(from: result.image)
+        }
     }
+   
     
-    var character: Result?
-    var url: String!
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }

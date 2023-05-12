@@ -60,7 +60,7 @@ class CharactersTableViewController: UITableViewController {
         : rickAndMorty?.results[indexPath.row]
         
         guard let charDetailVC = segue.destination as? CharacterDetailsViewController else { return }
-        charDetailVC.url = character?.url
+        charDetailVC.characterUrl = character?.url
     }
     
     // MARK: - IB Action

@@ -37,7 +37,7 @@ class NetworkManager {
     }
     
     // MARK: - fetchEpisode
-    private func fetchEpisode(from url: String, completion: @escaping (Episode) -> Void) {
+    func fetchEpisode(from url: String, completion: @escaping (Episode) -> Void) {
         guard let url = URL(string: url) else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
@@ -58,7 +58,7 @@ class NetworkManager {
     }
     
     // MARK: - fetchCharacter
-    private func fetchCharacter(from url: String, completion: @escaping (Result) -> Void) {
+    func fetchCharacter(from url: String, completion: @escaping (Result) -> Void) {
         guard let url = URL(string: url) else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
