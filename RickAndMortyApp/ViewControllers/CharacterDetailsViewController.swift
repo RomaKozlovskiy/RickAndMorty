@@ -9,6 +9,7 @@ import UIKit
 
 class CharacterDetailsViewController: UIViewController {
     
+    // MARK: - IB Outlets
     @IBOutlet var characterImageView: CharacterImageView! {
         didSet {
             characterImageView.layer.cornerRadius = characterImageView.frame.width / 2
@@ -20,10 +21,15 @@ class CharacterDetailsViewController: UIViewController {
     // MARK: - Public Properties
     var result: Result?
     var characterUrl: String!
-
     
+    // MARK: - Public Properties
+    var spinnerView: UIActivityIndicatorView!
+
+    // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        spinnerView = showSpinner(in: view)
         
         view.backgroundColor = .black
         descriptionLabel.textColor = .white
@@ -37,10 +43,20 @@ class CharacterDetailsViewController: UIViewController {
             self.title = result.name
             self.descriptionLabel.text = result.description
             self.characterImageView.fetchImage(from: result.image)
+            self.spinnerView.stopAnimating()
         }
     }
-   
     
-   
-
+    // MARK: - Private Methods
+    private func showSpinner(in view: UIView) -> UIActivityIndicatorView {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .white
+        activityIndicator.startAnimating()
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        
+        view.addSubview(activityIndicator)
+        
+        return activityIndicator
+    }
 }
