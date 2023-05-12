@@ -9,6 +9,8 @@ import UIKit
 
 class EpisodesViewController: UITableViewController {
 
+    var result: Result!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

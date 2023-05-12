@@ -109,7 +109,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BG5-ts-Vma">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="dTh-sL-QVV">
+                        <barButtonItem key="rightBarButtonItem" title="Episodes" id="dTh-sL-QVV">
                             <connections>
                                 <segue destination="2ST-mO-UPm" kind="presentation" id="CZF-7B-WYG"/>
                             </connections>

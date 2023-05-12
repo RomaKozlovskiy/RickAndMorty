@@ -13,7 +13,6 @@ class CharacterDetailsViewController: UIViewController {
     @IBOutlet var characterImageView: CharacterImageView! {
         didSet {
             characterImageView.layer.cornerRadius = characterImageView.frame.width / 2
-            
         }
     }
     @IBOutlet var descriptionLabel: UILabel!
@@ -22,8 +21,8 @@ class CharacterDetailsViewController: UIViewController {
     var result: Result?
     var characterUrl: String!
     
-    // MARK: - Public Properties
-    var spinnerView: UIActivityIndicatorView!
+    // MARK: - Private Properties
+    private var spinnerView: UIActivityIndicatorView!
 
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
@@ -45,6 +44,13 @@ class CharacterDetailsViewController: UIViewController {
             self.characterImageView.fetchImage(from: result.image)
             self.spinnerView.stopAnimating()
         }
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let navigationVC = segue.destination as? UINavigationController else { return }
+        guard let episodesVC = navigationVC.topViewController as? EpisodesViewController else { return }
+        episodesVC.result = result
     }
     
     // MARK: - Private Methods
