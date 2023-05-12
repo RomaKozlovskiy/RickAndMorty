@@ -9,6 +9,7 @@ import Foundation
 
 class NetworkManager {
     static let shared = NetworkManager()
+    
     private init() {}
     
     // MARK: - fetchData
@@ -76,4 +77,25 @@ class NetworkManager {
             }
         }.resume()
     }
+}
+
+class ImageManager {
+    static let shared = ImageManager()
+    
+    private init() {}
+    
+    func fetchImage(from url: URL, completion: @escaping(Data, URLResponse) -> Void) {
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, let response = response else {
+                print("Some error: \(error?.localizedDescription ?? "No description")")
+                return
+            }
+            
+            guard url == response.url else { return }
+            
+            completion(data, response)
+        }.resume()
+    }
+    
 }
