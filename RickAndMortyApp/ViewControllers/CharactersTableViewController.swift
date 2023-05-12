@@ -21,7 +21,7 @@ class CharactersTableViewController: UITableViewController {
         searchController.isActive && !searchBarIsEmpty
     }
     
-    
+    // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 70
@@ -29,16 +29,15 @@ class CharactersTableViewController: UITableViewController {
         
         setupSearchController()
         setupNavigationBar()
+        fetchData(from: URLS.rickAndMortyApi.rawValue)
     }
     
     // MARK: - Table view data source
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         isFiltering
         ? filteredCharacters.count
         : rickAndMorty?.results.count ?? 0
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let character = isFiltering
@@ -47,13 +46,31 @@ class CharactersTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TableViewCell
         
-        cell.nameLabel.text = character?.name
+        cell.setupWith(result: character)
         
         return cell
     }
     
-    // MARK: - Private Methods
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
     
+        let character = isFiltering
+        ? filteredCharacters[indexPath.row]
+        : rickAndMorty?.results[indexPath.row]
+        
+        guard let charDetailVC = segue.destination as? CharacterDetailsViewController else { return }
+        charDetailVC.url = character?.url
+    }
+    
+    // MARK: - IB Action
+    @IBAction func updateData(_ sender: UIBarButtonItem) {
+        sender.tag == 1
+        ? fetchData(from: rickAndMorty?.info.next)
+        : fetchData(from: rickAndMorty?.info.prev)
+    }
+    
+    // MARK: - Private Methods
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -83,12 +100,18 @@ class CharactersTableViewController: UITableViewController {
             navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         }
     }
+    
+    private func fetchData(from url: String?) {
+        NetworkManager.shared.fetchData(from: url) { rickAndMorty in
+            self.rickAndMorty = rickAndMorty
+            self.tableView.reloadData()
+        }
+    }
 }
 
 // MARK: - UISearchResultsUpdating
 extension CharactersTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        
         filterContentForSearchTExt(searchController.searchBar.text!)
     }
     
@@ -96,5 +119,7 @@ extension CharactersTableViewController: UISearchResultsUpdating {
         filteredCharacters = rickAndMorty?.results.filter({ character in
             character.name.lowercased().contains(searchText.lowercased())
         }) ?? []
+        
+        tableView.reloadData()
     }
 }

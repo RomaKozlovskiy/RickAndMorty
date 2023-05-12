@@ -32,12 +32,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kp3-7a-0t1">
-                                            <rect key="frame" x="73" y="21" width="266" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <rect key="frame" x="73" y="21" width="266" height="21.666666666666671"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="0bG-wv-pr6" firstAttribute="leading" secondItem="DBd-TX-uoP" secondAttribute="leading" constant="16" id="343-Pa-MtC"/>
                                         <constraint firstItem="Kp3-7a-0t1" firstAttribute="top" secondItem="DBd-TX-uoP" secondAttribute="topMargin" constant="10" id="4wS-wd-CEU"/>
@@ -59,8 +60,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="hCJ-VC-kGM">
-                        <barButtonItem key="leftBarButtonItem" title="Prev" id="GZv-OR-vXo"/>
-                        <barButtonItem key="rightBarButtonItem" tag="1" title="Next" id="lRp-mX-Pg8"/>
+                        <barButtonItem key="leftBarButtonItem" title="Prev" id="GZv-OR-vXo">
+                            <connections>
+                                <action selector="updateData:" destination="v4B-yw-gLV" id="P1r-s7-H0Y"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="Next" id="lRp-mX-Pg8">
+                            <connections>
+                                <action selector="updateData:" destination="v4B-yw-gLV" id="lBp-P5-I9E"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bTg-Ud-xDw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

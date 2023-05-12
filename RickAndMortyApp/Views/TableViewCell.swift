@@ -10,17 +10,19 @@ import UIKit
 class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var characterImageView: UIImageView!
+    @IBOutlet weak var characterImageView: CharacterImageView! {
+        didSet {
+            characterImageView.contentMode = .scaleAspectFill
+            characterImageView.clipsToBounds = true
+            characterImageView.layer.cornerRadius = characterImageView.bounds.height / 2
+            characterImageView.backgroundColor = .white
+        }
+    }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func setupWith(result: Result?) {
+        nameLabel.text = result?.name
+        characterImageView.fetchImage(from: result?.image ?? "")
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+   
 
 }
