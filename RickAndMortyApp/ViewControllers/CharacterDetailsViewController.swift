@@ -31,8 +31,7 @@ class CharacterDetailsViewController: UIViewController {
         spinnerView = showSpinner(in: view)
         
         view.backgroundColor = .black
-        descriptionLabel.textColor = .white
-        
+       
         if let topItem = navigationController?.navigationBar.topItem {
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         }
