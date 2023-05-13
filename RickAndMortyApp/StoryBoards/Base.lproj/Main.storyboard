@@ -79,7 +79,7 @@
         <!--Character Details View Controller-->
         <scene sceneID="88z-7Y-gGe">
             <objects>
-                <viewController id="keK-dv-Jvu" customClass="CharacterDetailsViewController" customModule="RickAndMortyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="keK-dv-Jvu" customClass="CharacterDetailsViewController" customModule="RickAndMortyApp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jcE-I2-EyI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +99,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nSt-Qb-KL1"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3Mv-aP-MnH" firstAttribute="centerX" secondItem="nSt-Qb-KL1" secondAttribute="centerX" id="Jwh-Yp-osM"/>
                             <constraint firstItem="nSt-Qb-KL1" firstAttribute="trailing" secondItem="FGE-xM-g8g" secondAttribute="trailing" constant="20" id="LKJ-tg-ZJs"/>
@@ -224,7 +224,7 @@
                     <connections>
                         <outlet property="episodeDescriptionLabel" destination="daK-Sa-1Kb" id="p5j-hm-OWJ"/>
                         <outlet property="tableView" destination="dBX-SY-EIq" id="JHJ-VC-N4Z"/>
-                        <segue destination="foL-Yt-71K" kind="show" identifier="showCharacter" id="RIS-88-xJC"/>
+                        <segue destination="foL-Yt-71K" kind="show" identifier="showCharacter" id="VpO-Ob-RkP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvQ-9J-hd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -234,7 +234,7 @@
         <!--Character Details View Controller-->
         <scene sceneID="5L2-z8-wXS">
             <objects>
-                <viewController id="foL-Yt-71K" customClass="CharacterDetailsViewController" customModule="RickAndMortyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="foL-Yt-71K" customClass="CharacterDetailsViewController" customModule="RickAndMortyApp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Veg-Ta-WmQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="755"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -246,15 +246,15 @@
                                     <constraint firstAttribute="height" constant="240" id="qOi-Uv-CiO"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEJ-YT-VmT">
-                                <rect key="frame" x="20" y="352" width="335" height="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEJ-YT-VmT">
+                                <rect key="frame" x="20" y="352" width="335" height="27.666666666666686"/>
                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="18"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2Eg-wo-aPu"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.08235294118" green="0.1333333333" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LTz-TN-svg" firstAttribute="top" secondItem="2Eg-wo-aPu" secondAttribute="top" constant="16" id="Gph-gF-PL4"/>
                             <constraint firstItem="qEJ-YT-VmT" firstAttribute="leading" secondItem="2Eg-wo-aPu" secondAttribute="leading" constant="20" id="KDf-wd-MQx"/>
@@ -264,10 +264,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xD3-jk-mzS"/>
+                    <connections>
+                        <outlet property="characterImageView" destination="LTz-TN-svg" id="ZKU-BI-uEt"/>
+                        <outlet property="descriptionLabel" destination="qEJ-YT-VmT" id="J8p-C6-Vgx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vpa-sS-dgz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4972" y="-35"/>
+            <point key="canvasLocation" x="4921" y="-35"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="swv-IS-JZK">

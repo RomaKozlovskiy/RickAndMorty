@@ -37,8 +37,8 @@ class EpisodeDetailsViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let characterDetailsVC = segue.destination as? CharacterDetailsViewController else { return }
-        characterDetailsVC.characterUrl = sender as? String
+        let detailsVC = segue.destination as! CharacterDetailsViewController
+        detailsVC.characterUrl = sender as? String
     }
 }
 
