@@ -9,6 +9,8 @@ import UIKit
 
 class EpisodeDetailsViewController: UIViewController {
 
+    var episodeUrl: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
